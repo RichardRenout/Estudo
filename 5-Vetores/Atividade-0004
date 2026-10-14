@@ -1,0 +1,13 @@
+import os
+os.system('cls')
+
+print(' EXIBINDO NOMES DE LIVROS')
+vetor_nomes = []
+
+for i in range(5):
+    nome = str(input(f'Digite o nome do {i+1} livro: '))
+    vetor_nomes.append(nome)
+
+print('\n EXIBINDO OS NOMES')
+for indice, nome in enumerate(vetor_nomes, start=1):
+    print(f'{indice}º : {nome}')
