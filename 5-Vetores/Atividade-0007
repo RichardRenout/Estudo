@@ -1,0 +1,25 @@
+import os
+os.system('cls')
+
+print(' EXIBINDO NOTAS')
+vetor_notas = []
+QUANTIDADE_NOTAS = 4
+
+for i in range(QUANTIDADE_NOTAS):
+    nota = float(input(f'Digite sua {i+1}º nota: '))
+    vetor_notas.append(nota)
+
+media = sum(vetor_notas) / QUANTIDADE_NOTAS
+
+print('\n EXIBIDNO NOTAS')
+for posicao, nota in enumerate(vetor_notas, start=1):
+    print(f'{posicao}º nota: {nota}')
+
+print(f'Média: {media}')
+
+if media >=7:
+    print('Aprovado')
+elif media >=5:
+    print('Recuperação')
+else:
+    print('Reprovado')
