@@ -1,0 +1,16 @@
+import os
+os.system('cls')
+
+vetor_numero = []
+QUANTIDADE = 5
+
+for i in range(QUANTIDADE):
+    numero = float(input(f'Digite seu {i+1}º numero: '))
+
+    if numero < 0:
+        numero = 0
+
+    vetor_numero.append(numero)
+
+print('\n EXIBINDO DADOS')
+print(f'\n numeros no vetor: {vetor_numero}')

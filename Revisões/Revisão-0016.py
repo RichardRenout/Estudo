@@ -1,5 +1,5 @@
 import os
-os.system(cls)
+os.system('cls')
 
 soma = 0
 quantidade = 0

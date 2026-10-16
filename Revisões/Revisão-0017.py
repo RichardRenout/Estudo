@@ -49,7 +49,7 @@ while True:
         print("\n--- RESULTADOS DA PESQUISA ---")
         if total_pessoas > 0:
             media_salario = total_salario / total_pessoas
-            print(f"a) Média de salário do grupo: R$ {media_salario:.2f}")[cite: 6]
+            print(f"a( Média de salário do grupo: R$ {media_salario:.2f}")[cite: 6]
             print(f"b) Maior idade: {maior_idade} anos | Menor idade: {menor_idade} anos")[cite: 6]
             print(f"c) Mulheres com salário a partir de R$ 5.000,00: {mulheres_salario_alto}")[cite: 6]
         else:

@@ -1,0 +1,19 @@
+import os
+os.system('cls')
+
+vetor_numero = []
+quantidade_negativos = 0
+soma_positivos = 0
+
+for i in range(5):
+    numero = float(input(f'Digite o {i+1} número: '))
+    vetor_numero.append(numero)
+
+for numero in vetor_numero:
+    if numero < 0:
+        quantidade_negativos += 1
+    elif numero > 0:
+        soma_positivos += numero
+
+print(f'Quantidade de numeros negativos: {quantidade_negativos}')
+print(f'Quantidade de positivos: {soma_positivos}')
