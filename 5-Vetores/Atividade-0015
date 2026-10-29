@@ -1,0 +1,35 @@
+import os
+os.system('cls')
+
+lista_series = []
+
+while True:
+    os.system('cls')
+
+    print('''
+1 - Cadastrar Série
+2 - Listar série
+3 - Sair
+
+''')
+
+    opcao = input('Digite sua escolha: ')
+
+    match opcao:
+        case 1:
+            print('\nCadastrando a série: ')
+            nome = input('Digite nome da nova série: ').strip().upper()
+
+            if nome == '':
+                print('O nome não pode estar vázio')
+            elif nome in lista_series:
+                print(f'{nome} já está cadastrado')
+            else:
+                lista_series.append(nome)
+                print('produto cadastrado com Sucesso!')
+                input('Pressione uma tecla para continuar...')
+        case 2:
+            
+        case 3:
+
+        case _:
