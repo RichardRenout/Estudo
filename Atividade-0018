@@ -1,0 +1,167 @@
+import os
+
+# Lista principal para armazenar os jogadores na memória
+jogadores = []
+
+
+def cadastrar_jogador():
+    print("\n--- CADASTRO DE JOGADOR ---")
+
+    # Validação do Nome (não pode ser em branco)
+    while True:
+        nome = input("Nome: ").strip()
+        if nome:
+            break
+        print("Erro: O nome não pode ser em branco.")
+
+    # Validação da Posição (não pode ser em branco)
+    while True:
+        posicao = input("Posição: ").strip()
+        if posicao:
+            break
+        print("Erro: A posição não pode ser em branco.")
+
+    # Validação da Camisa (deve ser inteiro positivo e não repetida)
+    while True:
+        camisa_str = input("Camisa: ").strip()
+        if not camisa_str.isdigit() or int(camisa_str) <= 0:
+            print("Erro: A camisa deve ser um número inteiro positivo.")
+            continue
+
+        camisa = int(camisa_str)
+
+        # Verifica se já existe um jogador com essa camisa
+        camisa_existe = any(j["camisa"] == camisa for j in jogadores)
+        if camisa_existe:
+            print(f"Erro: A camisa #{camisa} já está em uso por outro jogador!")
+        else:
+            break
+
+    # Adiciona o jogador à lista
+    jogadores.append({"nome": nome, "posicao": posicao, "camisa": camisa})
+    print("Jogador cadastrado com sucesso!")
+
+
+def listar_jogadores():
+    print("\n--- ELENCO DE JOGADORES ---")
+
+    # Informa quando o elenco estiver vazio[cite: 1]
+    if not jogadores:
+        print("O elenco está vazio.")
+        return False
+
+    # Mostra os jogadores numerados com seus dados[cite: 1]
+    for idx, j in enumerate(jogadores, 1):
+        print(f"{idx}. {j['nome']} | {j['posicao']} | #{j['camisa']}")
+
+    return True
+
+
+def atualizar_jogador():
+    print("\n--- ATUALIZAR JOGADOR ---")
+    if not listar_jogadores():
+        return
+
+    # Valida a escolha do número da listagem[cite: 1]
+    while True:
+        escolha = input("\nDigite o número do jogador que deseja editar: ").strip()
+        if escolha.isdigit() and 1 <= int(escolha) <= len(jogadores):
+            index = int(escolha) - 1
+            break
+        print("Erro: Escolha um número de jogador válido da listagem.")
+
+    print(
+        f"\nEditando dados de: {jogadores[index]['nome']} (Camisa #{jogadores[index]['camisa']})"
+    )
+
+    # Novo nome[cite: 1]
+    while True:
+        novo_nome = input("Novo nome: ").strip()
+        if novo_nome:
+            break
+        print("Erro: O nome não pode ser em branco.")
+
+    # Nova posição[cite: 1]
+    while True:
+        nova_posicao = input("Nova posição: ").strip()
+        if nova_posicao:
+            break
+        print("Erro: A posição não pode ser em branco.")
+
+    # Nova camisa[cite: 1]
+    while True:
+        nova_camisa_str = input("Nova camisa: ").strip()
+        if not nova_camisa_str.isdigit() or int(nova_camisa_str) <= 0:
+            print("Erro: A camisa deve ser um número inteiro positivo.")
+            continue
+
+        nova_camisa = int(nova_camisa_str)
+
+        # Permite manter a mesma camisa do próprio jogador, mas não duplicar com outros[cite: 1]
+        camisa_existe = any(
+            j["camisa"] == nova_camisa and i != index
+            for i, j in enumerate(jogadores)
+        )
+        if camisa_existe:
+            print(
+                f"Erro: A camisa #{nova_camisa} já está em uso por outro jogador!"
+            )
+        else:
+            break
+
+    # Atualiza os dados[cite: 1]
+    jogadores[index]["nome"] = novo_nome
+    jogadores[index]["posicao"] = nova_posicao
+    jogadores[index]["camisa"] = nova_camisa
+    print("Dados do jogador atualizados com sucesso!")
+
+
+def excluir_jogador():
+    print("\n--- EXCLUIR JOGADOR ---")
+    if not listar_jogadores():
+        return
+
+    # Valida a escolha do número da listagem[cite: 1]
+    while True:
+        escolha = input("\nDigite o número do jogador que deseja excluir: ").strip()
+        if escolha.isdigit() and 1 <= int(escolha) <= len(jogadores):
+            index = int(escolha) - 1
+            break
+        print("Erro: Escolha um número de jogador válido da listagem.")
+
+    removido = jogadores.pop(index)
+    print(f"Jogador {removido['nome']} removido com sucesso!")
+
+
+# Loop principal do menu[cite: 1]
+while True:
+    os.system("cls" if os.name == "nt" else "clear")
+
+    print("""   ============================
+   SISTEMA DE GESTÃO DO ELENCO
+   ============================
+
+1 - Cadastrar jogador
+2 - Listar jogadores
+3 - Atualizar jogador
+4 - Excluir Jogador
+0 - Sair
+""")
+
+    opcao = input("Digite sua escolha: ").strip()
+
+    if opcao == "1":
+        cadastrar_jogador()
+    elif opcao == "2":
+        listar_jogadores()
+    elif opcao == "3":
+        atualizar_jogador()
+    elif opcao == "4":
+        excluir_jogador()
+    elif opcao == "0":
+        print("\nSaindo do sistema... Até logo!")
+        break
+    else:
+        print("\nOpção inválida! Tente novamente.")
+
+    input("\nPressione ENTER para continuar...")

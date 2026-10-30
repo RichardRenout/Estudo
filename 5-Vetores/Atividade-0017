@@ -1,0 +1,79 @@
+import os
+
+lista_paciente = []
+
+while True:
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print('''
+        MENU
+
+1 - Cadastrar Paciente
+2 - Listar Pacientes
+3 - Atualizar Paciente
+4 - Excluir Paciente
+0 - Sair
+''')
+
+    opcao = input('Digite sua escolha: ').strip()
+
+    match opcao:
+        case '1':
+            print('\n--- CADASTRAR PACIENTE ---')
+            nome = input('Digite o nome do paciente para o cadastro: ').strip().upper()
+            if nome == '':
+                print('O nome precisa ser preenchido!')
+            elif nome in lista_paciente:
+                print('Paciente já cadastrado!')
+            else:
+                lista_paciente.append(nome)
+                print('Paciente cadastrado com sucesso!')
+
+        case '2':
+            print('\n--- PACIENTES EM ESPERA ---')
+            if not lista_paciente:
+                print('Lista vazia.')
+            else:
+                for i, paciente in enumerate(lista_paciente, start=1):
+                    print(f'{i}. {paciente}')
+            print(f'Total: {len(lista_paciente)}')
+
+        case '3':
+            print('\n--- ATUALIZAR PACIENTE ---')
+            if not lista_paciente:
+                print('Não há pacientes cadastrados para atualizar.')
+            else:
+                nome_antigo = input('Digite o nome do paciente que deseja atualizar: ').strip().upper()
+                if nome_antigo in lista_paciente:
+                    novo_nome = input('Digite o novo nome do paciente: ').strip().upper()
+                    if novo_nome == '':
+                        print('O novo nome não pode ser vazio!')
+                    elif novo_nome in lista_paciente:
+                        print('Já existe um paciente cadastrado com esse novo nome!')
+                    else:
+                        posicao = lista_paciente.index(nome_antigo)
+                        lista_paciente[posicao] = novo_nome
+                        print('Nome do paciente atualizado com sucesso!')
+                else:
+                    print('Paciente não encontrado na lista!')
+
+        case '4':
+            print('\n--- EXCLUIR PACIENTE ---')
+            if not lista_paciente:
+                print('Não há pacientes cadastrados para excluir.')
+            else:
+                nome_excluir = input('Digite o nome do paciente que deseja remover: ').strip().upper()
+                if nome_excluir in lista_paciente:
+                    lista_paciente.remove(nome_excluir)
+                    print('Paciente removido com sucesso!')
+                else:
+                    print('Paciente não encontrado na lista!')
+
+        case '0':
+            print('\nSaindo do sistema... Até logo!')
+            break
+
+        case _:
+            print('\nOpção inválida! Digite um número de 0 a 4.')
+
+    input('\nPressione ENTER para continuar...')
