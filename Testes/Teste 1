@@ -4,6 +4,7 @@ os.system('cls')
 pedido = []
 nome = []
 
+
 print('''
                 Menu 
 

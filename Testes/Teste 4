@@ -1,0 +1,18 @@
+import os
+os.system('cls')
+
+nome = str
+idade = int
+peso = float
+
+vetor_nome = []
+vetor_idade = []
+vetor_peso = []
+
+nome = input('Digite seu nome: ')
+vetor_nome.append(nome)
+idade = input('Digite sua idade: ')
+peso = float(input('Digite seu peso: '))
+
+print(f"Nomes: {vetor_nome}")
+print(f"confirme seu nome: ", {vetor_nome[0]})
