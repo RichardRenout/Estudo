@@ -1,0 +1,43 @@
+import os
+os.system('cls')
+
+print('''
+
+            MENU DE OPÇÕES
+
+1-cadastrar
+2-Mostrar dados
+3-sair
+
+''')
+
+def logo_senai():
+    print('\n')
+    print('='*15)
+    print(' SENAI - BAHIA   ')
+    print('='*15)
+
+while True:
+    logo_senai()
+    opcao = input('Digite sua opção:')
+    match opcao:
+        case '1':
+            print('= Cadastrando Dados =')
+            nome = input('Digite seu nome: ')
+            idade = input('Digite sua idade: ')
+            gmail = input('Digite seu gmail: ')
+            telefone = input('Digite seu telefone: ')
+        case '2':
+            print('= Mostrando Dados =')
+            print(f'Nome: {nome}')
+            print(f'Idade: {idade}')
+            print(f'Gmail: {gmail}')
+            print(f'Telefone: {telefone}')
+        case '3':
+            print('= Saindo do Sistema =')
+            pressione = input('Pressione qualquer tecla para sair...')
+            os.system('cls')
+            exit()
+        case _:
+            print('= Opção Inválida =')
+            break

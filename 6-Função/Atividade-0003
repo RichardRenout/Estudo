@@ -1,0 +1,16 @@
+import os
+os.system('cls')
+
+lista_produtos = []
+
+def mostrar_dados(lista_produtos):
+    for i in range(3):
+        print(f'{i+1} - {lista_produtos[i]}')
+
+print('= Solictando Dados =')
+for i in range(3):
+    produto = input(f'Digite o nome do produto: ')
+    lista_produtos.append(produto)
+
+print('\n= Exibindo Dados =')
+mostrar_dados(lista_produtos)
