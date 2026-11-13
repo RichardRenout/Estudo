@@ -1,0 +1,20 @@
+import os
+os.system('cls')
+
+def numero_positivo_negativo():
+    if numero > 0:
+        print('Positivo')
+    elif numero == 0:
+        print('Neutro')
+    elif numero < 0:
+        print('Negativo')
+    else:
+        print('Inválido')
+
+print('= Solicitando Dados =')
+numero = int(input('Digite um numero: '))
+
+resultado = numero_positivo_negativo(numero)
+
+print('\n Exibindo Dados ')
+print(f'O número: {numero} é {resultado}')

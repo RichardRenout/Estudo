@@ -1,0 +1,33 @@
+import os
+os.system('cls')
+
+def calcular_soma(numero1, numero2):
+    resultado = numero1 + numero2
+    return resultado
+
+def calcular_subtracao(numero1, numero2):
+    resultado = numero1 - numero2
+    return resultado
+
+def calcular_divisao(numero1, numero2):
+    resultado = numero1 / numero2
+    return resultado
+
+def calcular_multiplicacao(numero1, numero2):
+    resultado = numero1 * numero2
+    return resultado
+
+print('Solicitando Dados')
+numero1 = int(input('Digite um numero: '))
+numero2 = int(input('Digite um numero: '))
+
+soma = calcular_soma(numero1, numero2)
+subtracao = calcular_subtracao(numero1, numero2)
+multiplicacao = calcular_multiplicacao(numero1, numero2)
+divisao = calcular_divisão(numero1, numero2)
+
+print(' Exibindo Dados ')
+print(f'Soma: {soma}')
+print(f'Subtração: {subtracao}')
+print(f'Multiplicação: {multiplicacao}')
+print(f'Divisão: {divisao}')

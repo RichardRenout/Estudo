@@ -1,0 +1,18 @@
+import os
+os.system('cls')
+
+def verificando(n1,n2):
+    print(f'Resultado: {n1,n2}')
+
+n1 = int(input('Digite um numero: '))
+n2 = int(input('Digite um numero: '))
+
+soma = (n1+n2)
+subtracao = (n1-n2)
+divisao = (n1/n2)
+multiplicacao = (n1*n2)
+
+print(f'Soma: {soma}')
+print(f'Subtração: {subtracao}')
+print(f'Divisão: {divisao}')
+print(f'Multiplicacao: {multiplicacao}')
