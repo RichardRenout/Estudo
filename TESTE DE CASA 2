@@ -1,0 +1,13 @@
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
+
+def criando_calculo(valor1, valor2):
+    return valor1 + valor2
+    
+while True:
+    valor1 = float(input('Digite seu valor'))
+    valor2 = float(input('Digite seu valor'))
+
+    resposta = criando_calculo(valor1, valor2)
+    print(valor1, '+', valor2, '=', resposta)
+    break
