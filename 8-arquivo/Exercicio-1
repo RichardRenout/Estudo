@@ -1,0 +1,36 @@
+from dataclasses import dataclass
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
+
+@dataclass
+class Cliente:
+    nome: str
+    email: str
+    telefone: str
+    endereco: str
+
+QUANTIDADE_CLIENTES = 3
+
+lista_clientes = []
+
+for i in range(QUANTIDADE_CLIENTES):
+    novo_cliente = Cliente(
+        nome = input('Digite seu nome: '),
+        email = str(input('Digite seu email: ')),
+        telefone = str(input('Digite seu telefone: ')),
+        endereco = str(input('Digite seu endereço: '))
+    )
+    lista_clientes.append(novo_cliente)
+
+arquivo = 'fornecedor.csv'
+with open(arquivo, 'a') as arquivo_clientes:
+    for cliente in lista_clientes:
+        arquivo_clientes.write(f'{cliente.nome},{cliente.email},{cliente.telefone},{cliente.endereco}\n')
+
+print('\n Exibindo Dados')
+for cliente in lista_clientes:
+    print(f'Nome: {cliente.nome}')
+    print(f'Email: {cliente.email}')
+    print(f'Telefone: {cliente.telefone}')
+    print(f'Endereço: {cliente.endereco}')
+    print('===========')
